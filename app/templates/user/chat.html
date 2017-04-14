@@ -1,1 +1,20 @@
 <h1>Chat Room</h1>
+<div class="row">
+    <div class="col-xs-6">
+        <h2 class=''>Messages</h2>
+        <div class="" ng-repeat="msg in msgsList | orderBy: '-date'">
+            <p class="">De {{msg.author.pseudo}}</p>
+            <p class="">le {{msg.date | date : 'medium'}}</p>
+            <p class="">{{msg.content}}</p>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <p class="">Ajouter un message</p>
+        <form ng-submit="addMsg()">
+            <textarea class="form-control " rows="3" ng-model="newMsg.content"></textarea>
+            <button type="submit" class="btn  btn-xs">Envoyer</button>
+        </form>
+    </div>
+
+</div>
+</div>
