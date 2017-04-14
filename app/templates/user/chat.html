@@ -1,15 +1,15 @@
 <h1>Welcome to the Meow Room</h1>
-<div ng-hide="pseudo">
-<h2>Choose your pseudo buddy!</h2>
-<form>
-  <label>Pseudo: </label>
-  <input ng-model="monPseudo">
-  <button type="submit" ng-click="pseudoChosen()">I've chosen</button>
-</form>
+<div ng-hide="!pseudo">
+    <h2>Choose your pseudo buddy!</h2>
+    <form>
+        <label>Pseudo: </label>
+        <input ng-model="monPseudo">
+        <button type="submit" ng-click="pseudoChosen()">I've chosen</button>
+    </form>
 </div>
-<div ng-show="pseudo">
+<div ng-show="!pseudo">
     <div class="container-fluid">
-      <h3>En avant {{monPseudo}}</h3>
+        <h3>En avant {{user.pseudo}}</h3>
         <div class="row">
             <div class="col-xs-offset-2 col-xs-8">
                 <form>
@@ -17,10 +17,8 @@
                     <textarea type="text" rows="7" cols="69" ng-model="message"></textarea>
                     <button type="submit" ng-click="add()">Add</button>
                 </form>
-                <ul ng-repeat="message in messages track by $index">
-                    <!-- <li> -->
-                      <textarea readonly="readonly">{{message.element}}</textarea><em>posted by {{message.userPseudo}} the {{message.date | date : 'MMM d, y h:mm:ss a'}}</em>
-                      <!-- </li> -->
+                <ul ng-repeat="message in messages | orderBy : 'date':1 track by $index">
+                    <textarea rows="2" cols="50" readonly="readonly">{{message.element}}</textarea><em>posted by {{message.userPseudo}} the {{message.date | date : 'MMM d, y h:mm:ss a'}}</em>
                 </ul>
             </div>
         </div>

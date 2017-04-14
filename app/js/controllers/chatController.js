@@ -4,6 +4,9 @@ angular.module('app')
             $scope.user = res.data;
         });
 
+        var pseudo = CurrentUser.user().pseudo;
+
+
         $scope.messages = [];
 
         $scope.pseudoChosen = function() {
@@ -11,7 +14,7 @@ angular.module('app')
         };
         $scope.add = function() {
             ChatService.create({
-                userPseudo: $scope.monPseudo,
+                userPseudo: pseudo,
                 element: $scope.message
             });
             ChatService.getAll().then(function(res) {
