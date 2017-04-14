@@ -27,7 +27,7 @@
                     <button type="submit" ng-click="add()">Add</button>
                 </form>
                 <ul ng-repeat="message in messages | orderBy : 'date':1 track by $index">
-                  <button type="button" ng-click="like()">Like</button>
+                  <!-- <button type="button" ng-click="like($index)">Like</button>{{nblike}} -->
                     <textarea rows="2" cols="50" readonly="readonly">{{message.element}}</textarea>
                     <em>posted by {{message.userPseudo}} the {{message.date | date : 'MMM d, y h:mm:ss a'}}</em>
                 </ul>
