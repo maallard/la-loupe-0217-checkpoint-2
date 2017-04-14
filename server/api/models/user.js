@@ -2,6 +2,7 @@ import jsonwebtoken from 'jsonwebtoken';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import token from '../token.js';
+import Comment from './comment.js';
 
 const hashCode = (s) => s.split("").reduce((a, b) => {
     a = ((a << 5) - a) + b.charCodeAt(0);
