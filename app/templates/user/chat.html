@@ -1,1 +1,9 @@
 <h1>Chat Room</h1>
+
+  <form ng-submit="addMessage()">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="message" class="form-control" ng-model="user.message" required placeholder="Message">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+  </form>

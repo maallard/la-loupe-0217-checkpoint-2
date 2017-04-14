@@ -1,5 +1,5 @@
 import express from 'express';
-import User from '../models/newUser.js';
+import User from '../models/user.js';
 import Auth from '../middlewares/authorization.js';
 
 let router = express.Router();
@@ -16,7 +16,7 @@ module.exports = (app) => {
 
     router.get('/', Auth.isAdministrator, user.findAll);
 
-    router.get('/:id', Auth.isAdministrator, user.findById);
+    router.get('/:id', Auth.hasAuthorization, user.findById);
 
     router.post('/', user.create);
 
