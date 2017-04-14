@@ -2,6 +2,7 @@ angular.module('app')
     .controller('ChatController', function($scope, CurrentUser, MessageService) {
         $scope.user = CurrentUser.user();
         $scope.messages = [];
+        $scope.newestToOldest = true;
 
         $scope.sendMessage = function(content) {
             var message = {
