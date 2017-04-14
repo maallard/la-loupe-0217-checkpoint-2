@@ -4,4 +4,22 @@
     </div>
 </div>
 
-<textarea class="form-control" rows="3"></textarea>
+
+<h2>Chat{{message}}</h2>
+
+<form ng-submit="addMessage()">
+    <input type="text" ng-model="newChat.content">
+    <button type="submit">Add message</button>
+</form>
+
+<div ng-repeat="chat in chats">
+    <input type="checkbox" ng-model="chat.done"> {{ chat.content }}
+</div>
+
+<section id="main" style="display: block;">
+    <div ng-show="isChat()">
+
+
+    </div>
+
+</section>
