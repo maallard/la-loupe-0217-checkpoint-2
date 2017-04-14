@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('ChatController', function($scope, CurrentUser, UserService) {
+    .controller('ChatController', function($scope, CurrentUser, UserService, ChatService) {
         UserService.getOne(CurrentUser.user()._id).then(function(res) {
             $scope.user = res.data;
         });
@@ -8,23 +8,40 @@ angular.module('app')
         $scope.userInput = '';
         $scope.chat = [];
 
+
+        $scope.refresh = function() {
+                  ChatService.getAll().then(function(res){
+                    $scope.chat = res.data.chatRenvoyé;
+                  }, function(err) {
+                    console.error('erreur au chargement du chat');
+                  });
+                }
+                $scope.refresh();
+
+
+
+
         // AJOUTER
         $scope.ajouterCommentaire = function() {
 
           var userPost = {
             commentaire : $scope.commentaireInput,
             user : $scope.userInput,
-
           };
 
-            $scope.chat.push(userPost)
+
+
+          ChatService.create(userPost).then(function(res){
+                        $scope.chat.push(userPost)
+                        console.log('donné push');
+                      }, function(err) {
+                        console.error('Donné non push');
+                      });
+
 
             $scope.commentaireInput = '';
             $scope.userInput = '';
         };
 
 
-        $scope.verification = function() {
-                    console.log($scope.chat);
-                  };
     });
