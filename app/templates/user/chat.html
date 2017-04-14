@@ -3,21 +3,20 @@
         <div class="writeMessages">
 
             <h1>Chat Room</h1>
-            <form class="addNewMessage" ng-submit="addNewMessage" action="index.html" method="post">
+
                 <textarea ng-model="newMessage" rows="8" cols="80"></textarea>
-                <button type="submit" name="button">OK</button>
+                <button  ng-click="addNewMessage()">OK</button>
             </form>
         </div>
     </div>
     <div class="row">
         <div class="showMessages">
 
-<ul>
-  <li>{{newMessage}}</li>
-  <li ng-repeat="msg in messages">{{ msg }}</li>
-</ul>
+            <div ng-repeat="postmsg in newMessages">
+              <p>{{postmsg.userspseudo}}</p>
+                <div>{{ postmsg.message }}</div>
 
-
+            </div>
         </div>
     </div>
 </div>
