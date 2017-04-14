@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('ChatController', function($scope, CurrentUser, UserService, LocalService) {
+    .controller('ChatController', function($scope, CurrentUser, UserService, ChatService) {
         UserService.getOne(CurrentUser.user()._id).then(function(res) {
             $scope.user = res.data;
         });
@@ -8,24 +8,21 @@ angular.module('app')
         var id = CurrentUser.user().username;
         console.log(id);
 
-        $scope.chatList = [{
-                message: 'Hello, la Wild Code School c\'est trop bien !'
-            },
-            {
-                message: 'J\'adore les cours qu\'on nous donne !'
-            },
-            {
-                message: 'Voici le checkpoint 2 !'
-            },
-            {
-                message: 'Bravo Philippe, ton JS est très bien !'
-            }
-        ];
+        $scope.chatList = [];
+        ChatService.getAll().then(function(res) {
+          $scope.chatList = res.data;
+        }, function(err) {
+          console.log(err);
+        });
+
 
         $scope.addChat = function() {
-            $scope.chatList.push({
-                message: $scope.message
-            });
+          var message = {
+              message_sent: $scope.message,
+              author: CurrentUser.user()._id,
+          };
+            $scope.chatList.push(message);
+            ChatService.send(message);
             $scope.message = "";
         };
     });

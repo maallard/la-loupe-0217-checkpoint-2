@@ -6,7 +6,7 @@
 <input type="text" ng-model="search">
 <hr>
 <ul>
-    <li ng-repeat="chat in chatList | filter:search">{{ chat.message }} by <em>{{user.username}}</em></li>
+    <li ng-repeat="chat in chatList | filter:search">{{ chat.message_sent }} by <em>{{chat.author.username}}</em></li>
 </ul>
 <hr>
 <form ng-submit="addChat()">
