@@ -6,14 +6,12 @@ angular.module('app')
         $scope.add = "";
         $scope.chatComments = [];
         $scope.addComment = function(chatComment){
-          $scope.chatComments.push({
-            chatComment: $scope.chatComment
-          });
+          $scope.chatComments.push($scope.chatComment);
 
           var chat = {
             chatPost: chatComment
           };
-          
+
           console.log(chat);
 
           ChatService.createChat(chat).then(function(res){

@@ -14,7 +14,7 @@ module.exports = (app) => {
 
     router.get('/', chat.findAll);
 
-    router.post('/createchat/:id', Auth.hasAuthorization, chat.createChat);
+    router.post('/createchat', Auth.hasAuthorization, chat.createChat);
 
     app.use('/chats', router);
 
