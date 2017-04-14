@@ -8,7 +8,7 @@ h1 {
   color: blue;
 }
 
-.form-control, .chat li {
+.comment, .chat li {
   border: solid 1px blue;
   box-shadow: 8px 8px 5px blue;
 }
