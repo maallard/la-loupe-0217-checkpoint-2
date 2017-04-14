@@ -1,1 +1,16 @@
-<h1>Chat Room</h1>
+<h1>Welcome to the Chat Room, {{user.username}} !</h1>
+
+<hr>
+
+<label>Search in the chat room:</label>
+<input type="text" ng-model="search">
+<hr>
+<ul>
+    <li ng-repeat="chat in chatList | filter:search">{{ chat.message }} by <em>{{user.username}}</em></li>
+</ul>
+<hr>
+<form ng-submit="addChat()">
+    <label>Send a chat message:</label>
+    <input id="message_sent" type="text" placeholder="Type your message here" ng-model="message"><br>
+    <input type="submit" value="Submit">
+</form>
