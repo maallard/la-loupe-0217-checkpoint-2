@@ -8,14 +8,14 @@
             </div>
             <div class="form-group">
                 <label for="message-text" class="control-label">Please post chat</label>
-                <textarea ng-model="post" class="form-control" id="message-text"></textarea>
+                <textarea ng-model="chatComment" class="form-control" id="message-text"></textarea>
             </div>
             <button class="btn btn-success" type="submit" ng-click="addComment()" name="button">Valid Post</button>
         </form>
     </div>
     <form>
-      <div class="form-group" ng-repeat="post in posts">
+      <div class="form-group" ng-repeat="chatComment in chatComments">
         <label for="message-text" class="control-label">Post of</label>
-        <textarea class="form-control" id="message-text">{{ post }}</textarea>
+        <textarea class="form-control" id="message-text">{{ chatComment }}</textarea>
       </div>
     </form>
