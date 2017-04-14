@@ -12,7 +12,7 @@ module.exports = (app) => {
 
   var comment = new Comment();
 
-  router.get('/', Auth.hasAuthorization, comment.findAll);
+  router.get('/', Auth.hasAuthorization, comment.getAll);
 
   router.get('/forComment/:commentId', Auth.hasAuthorization, comment.findAllForComment);
 

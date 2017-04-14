@@ -12,6 +12,9 @@ angular.module('app')
             },
             delComment: function(id, commentId) {
                 return $http.put('/comments/delcomment', {user: id, comment: commentId});
+            },
+            getAll: function () {
+              return $http.get('/comments');
             }
         };
     });

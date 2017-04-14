@@ -76,4 +76,13 @@ export default class Comment {
                 }
             });
     }
+  getAll (req, res) {
+    model.find({}, (err, comments) => {
+      if (err || !comments) {
+        res.status(403).send(err.message);
+      } else {
+        res.json(comments);
+      }
+    });
+  }
 }

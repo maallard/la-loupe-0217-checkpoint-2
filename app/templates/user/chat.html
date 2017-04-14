@@ -1,8 +1,7 @@
 <h1>Chat Room</h1>
-
-<ul class="list-group">
-        <li ng-repeat="comment in comments"> {{ comment.date }} </li>
-</ul>
+<div ng-repeat="comment in comments">
+  <p> {{ comment.body }} by {{ comment.author }} {{ comment.date | date:'medium' }}</p>
+</div>
 
 <form class="form-inline">
     <input type="text" class="form-control" placeholder="Your message" ng-model="query">

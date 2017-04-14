@@ -28,4 +28,10 @@ angular.module('app')
           }, function(err) {
           });
         };
+        $scope.comments = [];
+        CommentService.getAll().then(function (res) {
+          $scope.comments = res.data;
+        }, function (err) {
+          // bad
+        });
     });
