@@ -1,1 +1,35 @@
-<h1>Chat Room</h1>
+<h1 id="title">Chat Room</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <textarea id="textArea" name="tchat text" rows="10" cols="100" ng-model="chatArea" placeholder="type your's message here!!!"></textarea>
+            <button class="btn btn-default " type="submtit" name="button" ng-click="chatSend()">Send</button>
+            <p ng-hide="alert" style="color:red">type a text</p>
+        </div>
+        <div id="tchatBox" class="col-xs-offset-2 col-xs-8" ng-repeat="text in texts | orderBy: '-date' track by $index">
+          <div id="subBox" class="row">
+            <div id="name" class="col-xs-2" id="tchat">
+                By {{text.pseudo}}:
+            </div>
+            <div id="tchatText" class="col-xs-10">
+              {{text.text}}
+            </div>
+            <div id="date" class="col-xs-4">
+              Like:{{text.like.length}}  <a href id="btnLike"  ng-click="like(text._id)"><span class="glyphicon glyphicon-thumbs-up" style="color:green"></span></a>
+Date: {{text.date | date}}
+
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+</div>

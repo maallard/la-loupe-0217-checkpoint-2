@@ -1,0 +1,37 @@
+body{
+  background: #16808C; /* Old browsers */
+background: -moz-linear-gradient(left, #cedbe9 0%, #aac5de 0%, #3a8bc2 0%, #16808C 0%, #16808C 0%, #16808C 2%, #16808C 2%, #3DF2E0 50%, #3DF2E0 50%, #16808C 100%, #26558b 100%, #16808C 101%);
+background: -webkit-linear-gradient(left, #cedbe9 0%,#aac5de 0%,#16808C 0%,#16808C 0%,#16808C 0%,#16808C 2%,#16808C 2%,#3DF2E0 50%,#3DF2E0 50%,#16808C 100%,#26558b 100%,#16808C 101%);
+background: linear-gradient(to right, #cedbe9 0%,#aac5de 0%,#16808C 0%,#16808C 0%,#16808C 0%,#16808C 2%,#16808C 2%,#3DF2E0 50%,#3DF2E0 50%,#16808C 100%,#26558b 100%,#16808C 101%);
+}
+h1{
+  text-align: center;
+}
+#textArea{
+  border-radius: 15px;
+
+}
+
+#tchatBox{
+  border-bottom: 1px #45EEA6 groove;
+  height: 100px;
+  font-size: 1.3em;
+
+}
+
+#tchatText {
+
+  text-align: center;
+
+
+}
+#name{
+  color: silver;
+}
+#date{
+  margin-top: 50px;
+  font-size: 12px;
+}
+#like{
+  margin-top: 50px;
+}

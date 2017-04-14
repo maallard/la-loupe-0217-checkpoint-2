@@ -9,6 +9,10 @@ const hashCode = (s) => s.split("").reduce((a, b) => {
 }, 0);
 
 const userSchema = new mongoose.Schema({
+    pseudo: {
+        type: String,
+        unique: true
+    },
     email: {
         type: String,
         required: [true, 'Email address is required'],
