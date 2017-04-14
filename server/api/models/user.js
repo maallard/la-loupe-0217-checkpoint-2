@@ -9,6 +9,10 @@ const hashCode = (s) => s.split("").reduce((a, b) => {
 }, 0);
 
 const userSchema = new mongoose.Schema({
+    pseudo: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: [true, 'Email address is required'],
@@ -18,6 +22,7 @@ const userSchema = new mongoose.Schema({
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
         unique: true
     },
+  
     password: {
         type: String,
         required: true

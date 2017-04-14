@@ -2,6 +2,11 @@
     <div class="col-xs-6 col-xs-offset-3">
         <form class="form" name="loginForm" novalidate ng-submit="login()">
             <div ng-repeat="error in errors">{{error.error}}</div>
+            <label for="login-input-user" class="login__label">
+            				Pseudo
+            				</label>
+            <input id="login-input-user" class="login__input" ng-model="user.pseudo" required type="text" name="" value="" />
+
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Email Address">
