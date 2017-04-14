@@ -36,11 +36,11 @@ export default class Chat {
 
     createChat(req, res) {
         model.create(req.body,
-            (err, chats) => {
+            (err, chat) => {
                 if (err) {
                     res.status(500).send(err.message);
                 } else {
-                    res.json(chats);
+                    res.json(chat);
                 }
             });
         }

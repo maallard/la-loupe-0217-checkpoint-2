@@ -13,6 +13,8 @@ angular.module('app')
           var chat = {
             chatPost: chatComment
           };
+          
+          console.log(chat);
 
           ChatService.createChat(chat).then(function(res){
           });

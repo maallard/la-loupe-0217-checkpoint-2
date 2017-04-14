@@ -10,7 +10,7 @@
                 <label for="message-text" class="control-label">Please post chat</label>
                 <textarea ng-model="chatComment" class="form-control" id="message-text"></textarea>
             </div>
-            <button class="btn btn-success" type="submit" ng-click="addComment()" name="button">Valid Post</button>
+            <button class="btn btn-success" type="submit" ng-click="addComment(chatComment)" name="button">Valid Post</button>
         </form>
     </div>
     <form>
