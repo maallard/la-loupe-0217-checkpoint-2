@@ -14,6 +14,10 @@ Vous devez utiliser la MEAN-Stack
 - ~~En tant qu'utilisateur je dois poster un message depuis un textaerea, le message doit s'afficher immediatement dans le flux de messages et le textaera doit se vider une fois le message posté.~~
 - ~~[BONUS] - En tant qu'utilisateur je dois pouvoir liker un message et le nombre de like d'un message doit apparaitre sur celui-ci.~~
 
+## Bonus
+
+
+
 
 Astuce: L'exercie demander n'est pas trés différents sur le plan technique d'une todo liste.
 

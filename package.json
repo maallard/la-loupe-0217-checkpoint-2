@@ -10,6 +10,7 @@
     "production": "lineman clean build && node production.js"
   },
   "dependencies": {
+    "angular-marked": "^1.2.2",
     "express": "",
     "lineman": "~0.37.0",
     "lineman-angular": "^0.3.0",

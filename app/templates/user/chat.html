@@ -1,5 +1,10 @@
 <h1>Chat Room</h1>
 
+<h2>Instructions</h2>
+<p>
+    Type in the box your message and click 'Send'. This chat uses Markdown.
+</p>
+
 <form ng-submit="sendMessage(newChatMessage)">
     <textarea rows="8" cols="80" ng-model="newChatMessage"></textarea>
     <button tupe="submit">Send</button>
@@ -35,8 +40,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="content">
-                    {{ message.content }}
+                <div marked="message.content" class="content">
                 </div>
             </div>
         </li>

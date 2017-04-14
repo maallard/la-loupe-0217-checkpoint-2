@@ -1,15 +1,15 @@
 angular.module('app')
-    .controller('ChatController', function($scope, CurrentUser, MessageService) {
+    .controller('ChatController', function($scope, $interval, CurrentUser, MessageService) {
         // Variables
         $scope.user = CurrentUser.user();
         $scope.messages = [];
         $scope.newestToOldest = true;
         $scope.newChatMessage = "";
 
-
         // Called on page load
         clearFields();
         refreshFeed();
+        $interval(refreshFeed, 2000);
 
         // Public functions
         $scope.sendMessage = function(content) {
