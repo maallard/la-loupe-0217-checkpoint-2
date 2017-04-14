@@ -6,7 +6,6 @@ angular.module('app')
 
         var pseudo = CurrentUser.user().pseudo;
 
-
         $scope.messages = [];
 
         $scope.pseudoChosen = function() {

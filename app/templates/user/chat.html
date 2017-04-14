@@ -1,4 +1,14 @@
-<h1>Welcome to the Meow Room</h1>
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <h1>Welcome to the Meow Room !</h1>
+        </div>
+        <div class="col-xs-6">
+            <img src="https://a.wattpad.com/useravatar/epigramman.256.54719.jpg" alt="relaxed cat">
+        </div>
+    </div>
+</div>
 <div ng-hide="!pseudo">
     <h2>Choose your pseudo buddy!</h2>
     <form>
@@ -9,16 +19,17 @@
 </div>
 <div ng-show="!pseudo">
     <div class="container-fluid">
-        <h3>En avant {{user.pseudo}}</h3>
+        <h3>Glad you're here buddy {{user.pseudo}} !</h3>
         <div class="row">
             <div class="col-xs-offset-2 col-xs-8">
                 <form>
-                    <label>Your post bro :</label>
                     <textarea type="text" rows="7" cols="69" ng-model="message"></textarea>
                     <button type="submit" ng-click="add()">Add</button>
                 </form>
                 <ul ng-repeat="message in messages | orderBy : 'date':1 track by $index">
-                    <textarea rows="2" cols="50" readonly="readonly">{{message.element}}</textarea><em>posted by {{message.userPseudo}} the {{message.date | date : 'MMM d, y h:mm:ss a'}}</em>
+                  <button type="button" ng-click="like()">Like</button>
+                    <textarea rows="2" cols="50" readonly="readonly">{{message.element}}</textarea>
+                    <em>posted by {{message.userPseudo}} the {{message.date | date : 'MMM d, y h:mm:ss a'}}</em>
                 </ul>
             </div>
         </div>
