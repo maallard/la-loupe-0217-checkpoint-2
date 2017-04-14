@@ -12,9 +12,9 @@ const userSchema = new mongoose.Schema({
 
     pseudo: {
         type: String,
-        match: /^[a-zA-Z0-9-_]+$/,
+      
         required: true,
-        unique: true
+
     },
 
     email: {
