@@ -2,27 +2,45 @@ angular.module('app')
     .controller('ChatController', function($scope, CurrentUser, UserService, MessagesService) {
         UserService.getOne(CurrentUser.user()._id).then(function(res) {
             $scope.user = res.data;
+            $scope.pseudo = res.data.pseudo;
+            console.log($scope.user);
 
-            $scope.newMessages=[];
+// MessagesService.getAll().then(function(res) {
+//   $scope.comments = res.data.message;
+// };
+
+            $scope.newMessages = [];
+            $scope.allComments = {
+              writer: $scope.pseudo,
+              comments: $scope.comments
+            };
+            $scope.error = true;
+
+            $scope.newMessage = '';
+            $scope.addNewMessage = function() {
+
+                if ($scope.newMessage !== "") {
 
 
-        //     UserService.getOne(CurrentUser.pseudo()._id).then(function(res) {
-        //   $scope.pseudo = res.data;
-        // });
+                    console.log($scope.pseudo);
+                    var postmsg = {
+                        pseudo: $scope.pseudo,
+                        message: $scope.newMessage
+                    };
+                    $scope.newMessages.push(postmsg);
+                    $scope.newMessage = '';
 
-            $scope.newMessage='';
-            $scope.addNewMessage= function () {
-              var postmsg = {
-                pseudo: $scope.pseudo,
-                message: $scope.newMessage
-              };
-              $scope.newMessages.push(postmsg);
-              $scope.newMessage='';
+                    MessagesService.create(postmsg).then(function(res) {
 
-              MessagesService.create(postmsg).then(function(res) {
+                    }, function(err) {});
+                    $scope.error =true;
+                }
+                else{
 
-                            }, function(err) {});
-
+                $scope.error = false;
+              }
             };
         });
+
+
     });

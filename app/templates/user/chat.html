@@ -6,17 +6,32 @@
 
                 <textarea ng-model="newMessage" rows="8" cols="80"></textarea>
                 <button  ng-click="addNewMessage()">OK</button>
+                <p ng-hide="error">write something</p>
             </form>
         </div>
     </div>
     <div class="row">
-        <div class="showMessages">
+        <div class="showMessage">
 
             <div ng-repeat="postmsg in newMessages">
               <p>{{postmsg.pseudo}}</p>
-                <div>{{ postmsg.message }}</div>
+                <p>{{ postmsg.message }}</p>
 
             </div>
         </div>
     </div>
+
+        <div class="showAllMessages">
+
+            <div ng-repeat="writer in allComments">
+              <p>{{writer}}</p>
+              <p>{{comments}}</p>
+
+
+            </div>
+        </div>
+
+
+
+
 </div>
