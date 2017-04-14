@@ -1,1 +1,10 @@
 <h1>Chat Room</h1>
+
+  <div class="container">
+    <div class="row" ng-repeat="message in messages track by $index">
+      <p> {{commentaire.content}}</p>
+    </div>
+  </div>
+  <form class="" action="index.html" method="post">
+    <input ng-model="message" placeholder="your text here"><button type="submit" ng-click="addMessage()">Add message</button>
+  </form>

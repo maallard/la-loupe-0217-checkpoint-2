@@ -52,7 +52,16 @@ angular.module('app')
                         templateUrl: 'user/chat.html',
                         controller: 'ChatController'
                     }
-                }
+                },
             });
+            // .state('user.chat', {
+            //     url: '/',
+            //     views: {
+            //         'content@': {
+            //             templateUrl: 'user/chat.html',
+            //             controller: 'MessageController'
+            //         }
+            //     }
+            // });
         $urlRouterProvider.otherwise('/');
     });
