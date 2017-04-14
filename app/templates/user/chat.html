@@ -1,1 +1,50 @@
-<h1>Chat Room</h1>
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body ng-app="myApp" ng-controller="todoCtrl">
+
+  <center><h2>ChatRoom</h2></center>
+
+    <center><form ng-submit="todoAdd()">
+        <input type="text" ng-model="todoInput" size="50" placeholder="Send New">
+        <input type="submit" value="Send New">
+    </form></center>
+
+
+
+    <div ng-repeat="x in todoList">
+        <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+    </div>
+
+    <center><p><button ng-click="remove()">Remove message</button></p></center>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('todoCtrl', function($scope) {
+            $scope.todoList = [{
+                todoText: '',
+                done:
+            }];
+
+            $scope.todoAdd = function() {
+                $scope.todoList.push({
+                    todoText: $scope.todoInput,
+                    done: false
+                });
+                $scope.todoInput = "";
+            };
+
+            $scope.remove = function() {
+                var oldList = $scope.todoList;
+                $scope.todoList = [];
+                angular.forEach(oldList, function(x) {
+                    if (!x.done) $scope.todoList.push(x);
+                });
+            };
+        });
+    </script>
+
+</body>
+
+</html>
