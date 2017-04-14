@@ -1,1 +1,12 @@
 <h1>Chat Room</h1>
+
+<form>
+  <textarea ng-model="newComment" rows="8" cols="80"></textarea>
+  <button type="button" ng-click="addComment()">Validate</button>
+</form>
+
+<h2>Feed</h2>
+<div ng-repeat="comment in comments">
+  <input type="checkbox">
+  {{ comment | date:'dd-MM-yyyy HH:mm:ss'}}
+</div>
