@@ -12,15 +12,7 @@
 
 </div>
 
-
-
-
-
-
-
-
-
-
+<form class="" ng-submit="ajouterCommentaire()" >
 
 
 <p>Entrez votre Commentaire: </p><textarea name="name" rows="4" cols="80" ng-model="commentaireInput"></textarea>
@@ -32,21 +24,10 @@
 <br /> <br />
 
 
-<button type="submit" name="button" ng-click="ajouterCommentaire()">Ajouter</button>
+<button type="submit" name="button" ng-submit="ajouterCommentaire()">Ajouter</button>
 
 <button type="submit" name="button" ng-click="verification()">Verification</button>
 
 <br /><br />
 
-<ul>
-    <!-- "track by $index" permet de répeter la meme valeur d'affiler sans message d'erreur ng-repeat = "Duplicates in a repeater are not allowed"" -->
-    <li ng-repeat="devoirs in todolist track by $index">
-      <p>User : {{devoirs.User}} <input ng-model="editUser"> <button type="button" name="button" ng-click="editconfirm($index,editUser,'User')"> Edit </button></p>
-      <p>Todo : {{devoirs.Todo}} <input ng-model="editTodo"> <button type="button" name="button" ng-click="editconfirm($index,editTodo, 'Todo')"> Edit </button></p>
-      <p>Days : {{ devoirs.Day }} <input ng-model="editDay"> <button type="button" name="button" ng-click="editconfirm($index,editDay, 'Day')"> Edit </button></p>
-
-        <button type="submit" name="button" ng-click="delete($index)">Delete</button>
-
-        <br /><br />
-    </li>
-</ul>
+</form>
