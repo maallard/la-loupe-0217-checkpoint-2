@@ -1,1 +1,23 @@
-<h1>Chat Room</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="writeMessages">
+
+            <h1>Chat Room</h1>
+            <form class="addNewMessage" ng-submit="addNewMessage" action="index.html" method="post">
+                <textarea ng-model="newMessage" rows="8" cols="80"></textarea>
+                <button type="submit" name="button">OK</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="showMessages">
+
+<ul>
+  <li>{{newMessage}}</li>
+  <li ng-repeat="msg in messages">{{ msg }}</li>
+</ul>
+
+
+        </div>
+    </div>
+</div>
