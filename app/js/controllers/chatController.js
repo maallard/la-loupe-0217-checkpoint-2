@@ -6,6 +6,7 @@ angular.module('app')
         $scope.newestToOldest = true;
         $scope.newChatMessage = "";
 
+
         // Called on page load
         clearFields();
         refreshFeed();
@@ -17,7 +18,7 @@ angular.module('app')
                 author: $scope.user._id
             };
 
-            MessageService.send(message).then(function(res){
+            MessageService.send(message).then(function(res) {
                 console.log("Successfuly sent message at", res.data.creation_date);
                 clearFields();
                 refreshFeed();
@@ -31,9 +32,9 @@ angular.module('app')
             var liker = $scope.user._id;
             MessageService.like(message._id, liked, liker).then(function(res) {
                 if (liked) {
-                    message.likes.push($scope.user._id);
+                    message.likes.push({'_id':$scope.user._id});
                 } else {
-                    var index = message.likes.indexOf($scope.user._id);
+                    var index = indexOfLiker(messages.likes, '_id', $scope.user._id);
                     message.likes.splice(index, 1);
                 }
                 console.log(`Successfully ${liked ? 'liked' : 'disliked'} message`);
@@ -42,17 +43,30 @@ angular.module('app')
             });
         };
 
+        $scope.isCurrentUser = function(user) {
+            return user._id === $scope.user._id;
+        };
+
         // Private functions
         function clearFields() {
             $scope.newChatMessage = "";
         }
 
         function refreshFeed() {
-            MessageService.getAll().then(function(res){
+            MessageService.getAll().then(function(res) {
                 $scope.messages = res.data.messages;
                 console.log("Successfuly refreshed feed at", (new Date()).toLocaleTimeString(), "||>", res.data);
             }, function(err) {
                 console.error('Error refreshing feed');
             });
+        }
+
+        function indexOfLiker(array, attr, value) {
+            for (var i = 0; i < array.length; i += 1) {
+                if (array[i][attr] === value) {
+                    return i;
+                }
+            }
+            return -1;
         }
     });

@@ -48,6 +48,11 @@ export default class Message {
                 'isAdmin': 0,
                 '__v': 0
             })
+            .populate('likes', {
+                'password': 0,
+                'isAdmin': 0,
+                '__v': 0
+            })
             .exec((err, messages) => {
                 if (err || !messages) {
                     res.status(403).send({
