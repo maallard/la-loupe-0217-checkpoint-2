@@ -20,7 +20,7 @@ module.exports = (app) => {
 
     router.post('/', user.create);
 
-    router.put('/newcomment/:id', Auth.hasAuthorization, user.addComment);
+    router.post('/newcomment/:id', Auth.hasAuthorization, user.addComment);
 
     router.put('/:id', Auth.isAdministrator, user.update);
 

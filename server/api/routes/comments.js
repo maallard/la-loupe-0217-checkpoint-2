@@ -12,11 +12,11 @@ module.exports = (app) => {
 
   var comment = new Comment();
 
-  router.get('/forComment/:commentId', comment.findAllForComment);
+  router.get('/', Auth.hasAuthorization, comment.findAll);
 
   router.get('/forComment/:commentId', Auth.hasAuthorization, comment.findAllForComment);
 
-  router.post('/addcomment/newcomment', Auth.hasAuthorization, comment.addComment);
+  router.post('/addcomment', Auth.hasAuthorization, comment.addComment);
 
   router.put('/delcomment', Auth.hasAuthorization, comment.delComment);
 

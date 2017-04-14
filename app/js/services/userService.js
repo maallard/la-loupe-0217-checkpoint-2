@@ -14,7 +14,7 @@ angular.module('app')
                 return $http.delete('/users/' + id);
             },
             addComment: function(id, commentId) {
-                return $http.put('/users/newcomment/' + id, {comment: commentId});
+                return $http.post('/users/newcomment/' + id, {comment: commentId});
             }
         };
     });

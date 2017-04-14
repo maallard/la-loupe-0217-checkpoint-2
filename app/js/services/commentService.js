@@ -1,6 +1,9 @@
 angular.module('app')
     .service('CommentService', function($http) {
         return {
+            findAll: function () {
+              return $http.get('/comments', comment);
+            },
             getAllByCommentId: function (commentId) {
                 return $http.get('/comments/forComment/' + commentId);
             },

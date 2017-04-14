@@ -11,23 +11,21 @@ angular.module('app')
           $scope.messages.push(emptyMessage);
           $scope.query = '';
         };
-        $scope.user = CurrentUser.user();
-        $scope.comments = [];
-        UserService.getOne($scope.user._id).then(function (res) {
-          res.data.comments.forEach(function (comment) {
-            CommentService.getById(comment.commentId).then(function (res) {
-              $scope.comments.push(res.data[0]);
-            });
+        $scope.addComment = function () {
+          CommentService.addComment({author: $scope.user._id, body: $scope.query}).then(function(res) {
           });
-        });
-        // $scope.afficher();
-        $scope.addComment = function (commentId) {
-          UserService.addComment(CurrentUser.user()._id, commentId).then(function(res) {
-          });
+          location.reload();
         };
         // $scope.afficher();
         $scope.delComment = function (commentId) {
           UserService.delComment(CurrentUser.user()._id, commentId).then(function(res) {
+          });
+        };
+        $scope.comments = [];
+        $scope.getComments = function() {
+          CommentService.getAll().then(function(res) {
+            $scope.comments = res.data;
+          }, function(err) {
           });
         };
     });

@@ -105,7 +105,7 @@ export default class User {
                 }
             });
     }
-    
+
     findAll(req, res) {
         model.find({}, {
             password: 0

@@ -34,7 +34,7 @@ export default class Comment {
 
     findAllForComment(req, res) {
         model.find({
-          beerId: req.params.beerId
+          commentId: req.params.commentId
         })
         .populate('author', 'name')
         .exec(
