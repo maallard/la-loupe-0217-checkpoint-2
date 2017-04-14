@@ -4,6 +4,10 @@
             <div ng-repeat="error in errors">{{error.error}}</div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input id="name" type="name" class="form-control" ng-model="user.name" required placeholder="Name">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input id="email" type="email" class="form-control" ng-model="user.email" required placeholder="Email Address">
             </div>
             <div class="input-group">

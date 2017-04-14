@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
         unique: true
     },
+    name: {
+      type: String,
+      default:"anon"
+    },
     password: {
         type: String,
         required: true
@@ -25,7 +29,14 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    userPost: {
+      type: Array,
+    },
+    creationDate: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {

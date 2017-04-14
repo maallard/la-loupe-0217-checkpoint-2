@@ -1,0 +1,27 @@
+.fond {
+    background-image: url('http://www.vectorimages.org/09/0920100516074752590.jpg');
+    background-repeat: repeat-y;
+    opacity: 50%;
+}
+.name {
+
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.entoure {
+    height: 70px;
+    width: 100%;
+}
+
+.post {
+  min-height: 50px;
+    border-radius: 10px 40px 40px 10px;
+    background-color: lightblue;
+    color: white;
+    border: 1px solid lightgrey;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    vertical-align: middle;
+    font-size: 25px;
+}
