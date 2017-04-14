@@ -2,8 +2,8 @@ angular.module('app')
     .service('MessagesService', function($http) {
         return {
 
-            create: function(newMessage) {
-                return http.post('/messages', newMessage);
+            create: function(postmsg) {
+                return $http.post('/messages', postmsg);
             },
 
             getAll: function() {

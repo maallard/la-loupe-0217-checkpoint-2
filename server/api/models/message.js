@@ -10,11 +10,17 @@ const hashCode = (s) => s.split("").reduce((a, b) => {
 
 const messageSchema = new mongoose.Schema({
 
-
-  message: {
-      type: String,
-      required: true
-  }
+pseudo: {
+  type: String,
+},
+    message: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: new Date()
+    }
 
 });
 
@@ -22,11 +28,19 @@ let model = mongoose.model('Message', messageSchema);
 
 export default class User {
 
-
+  create(req, res) {
+      model.create(req.body,
+          (err, messages) => {
+              if (err || !messages) {
+                  res.sendStatus(403);
+              } else {
+                  res.json(messages);
+              }
+          });
+  }
 
     findAll(req, res) {
-        model.find({}, {
-        }, (err, messages) => {
+        model.find({}, {}, (err, messages) => {
             if (err || !messages) {
                 res.sendStatus(403);
             } else {
@@ -36,15 +50,4 @@ export default class User {
     }
 
 
-
-    create(req, res) {
-        model.create(req.body,
-            (err, user) => {
-              if (err || !messages) {
-                  res.sendStatus(403);
-              } else {
-                  res.json(users);
-              }
-          });
-      }
-    }
+}

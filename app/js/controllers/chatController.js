@@ -5,16 +5,21 @@ angular.module('app')
 
             $scope.newMessages=[];
 
+
+        //     UserService.getOne(CurrentUser.pseudo()._id).then(function(res) {
+        //   $scope.pseudo = res.data;
+        // });
+
             $scope.newMessage='';
             $scope.addNewMessage= function () {
               var postmsg = {
-                userspseudo: "clem",
+                pseudo: $scope.pseudo,
                 message: $scope.newMessage
               };
               $scope.newMessages.push(postmsg);
               $scope.newMessage='';
 
-              MessagesService.create(postms).then(function(res) {
+              MessagesService.create(postmsg).then(function(res) {
 
                             }, function(err) {});
 
