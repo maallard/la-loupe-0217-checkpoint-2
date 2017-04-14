@@ -1,1 +1,35 @@
-<h1>Chat Room</h1>
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-xs-6 left">
+            <h1>Chat Room</h1>
+            <form ng-submit="addMessage()">
+                <p>Message : </p><textarea required name="name" rows="4" cols="80" ng-model="message"></textarea>
+                <p>User : {{user.email}}</p> <input type="text" name="" ng-model="userinput">
+                <p>{{date | date:'yyyy-MM-dd'}}</p>
+                <button type="submit" name="button">Add</button>
+            </form>
+        </div>
+        <div class="col-xs-6 right">
+            <h1>Messages</h1>
+            <table>
+                <tr ng-repeat="chat in messageslist">
+
+                  <!-- | orderBy:'Date' -->
+
+
+                    <td>{{ chat.Message }}</td>
+                    <td>{{ chat.User }}</td>
+                    <td>{{ chat.Created_at }}</td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+</div>
