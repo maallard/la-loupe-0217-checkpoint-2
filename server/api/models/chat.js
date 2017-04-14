@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
-    user: {
+const chatSchema = new mongoose.Schema({
+    userPseudo: {
         type: String,
         required : true
     },
@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-let model = mongoose.model('Chat', userSchema);
+let model = mongoose.model('Chat', chatSchema);
 
 export default class Chat {
 
@@ -41,10 +41,10 @@ export default class Chat {
     }
 
     create(req, res) {
-        if (req.body.password) {
-            var salt = bcrypt.genSaltSync(10);
-            req.body.password = bcrypt.hashSync(req.body.password, salt);
-        }
+        // if (req.body.password) {
+        //     var salt = bcrypt.genSaltSync(10);
+        //     req.body.password = bcrypt.hashSync(req.body.password, salt);
+        // }
         model.create(req.body,
             (err, user) => {
                 if (err || !user) {
@@ -53,9 +53,10 @@ export default class Chat {
                     }
                     res.status(500).send(err.message);
                 } else {
-                    let tk = jsonwebtoken.sign(user, token, {
-                        expiresIn: "24h"
-                    });
+
+                    // let tk = jsonwebtoken.sign(user, token, {
+                    //     expiresIn: "24h"
+                    // });
                     res.json({
                         success: true,
                         user: user,

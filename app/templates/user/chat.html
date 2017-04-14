@@ -18,8 +18,9 @@
                     <button type="submit" ng-click="add()">Add</button>
                 </form>
                 <ul ng-repeat="message in messages track by $index">
-                    <li>{{message}}
-                    </li>
+                    <!-- <li> -->
+                      <textarea readonly="readonly">{{message.element}}</textarea><em>posted by {{message.userPseudo}} the {{message.date | filter : MM-JJ-AA}}</em>
+                      <!-- </li> -->
                 </ul>
             </div>
         </div>
