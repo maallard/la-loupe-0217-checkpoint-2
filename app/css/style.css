@@ -2,26 +2,52 @@ html, body {
   font-family: Helvetica, sans-serif;
 }
 
-h2 {
+h1 {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: blue;
+}
+
+.form-control, .chat li {
+  border: solid 1px blue;
+  box-shadow: 8px 8px 5px blue;
+}
+
+.form-control {
+  margin-bottom: 1em;
+}
+
+.submit-button {
+  font-size: 1.2em;
+  color: blue;
+  border: solid 1px blue;
+  box-shadow: 8px 8px 5px blue;
+}
+
+.chat h2 {
   font-weight: bold;
   font-size: 1.2em;
   margin: 0 0 0.5em 0;
   padding: 0;
+  color: blue;
 }
 
-h3 {
+.chat h3 {
   font-weight: normal;
   font-size: 1em;
   margin: 0 0 0.5em 0;
   padding: 0;
+  color: blue;
 }
 
-hr {
+.chat hr {
   margin: 0.8em 0 0.5em 0;
   padding: 0;
+  border: dotted 1px blue;
 }
 
-p {
+.chat p {
+  font-weight: bold;
   margin: 0 0 0.3em 0;
   padding: 0;
 }
