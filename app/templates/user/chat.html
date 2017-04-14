@@ -15,7 +15,7 @@
         <li ng-repeat="message in messages | orderBy :'creation_date':newestToOldest track by $index">
             <div class="message">
                 <div class="meta">
-                    <span class="author">{{ message.author}}</span> <span class="date">{{ message.creation_date }}</span>
+                    <span class="author">{{ message.author}}</span> <span class="date">{{ message.creation_date | date : 'medium'}}</span>
                 </div>
                 <div class="content">
                     {{ message.content }}
