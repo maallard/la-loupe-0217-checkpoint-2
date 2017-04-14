@@ -1,1 +1,27 @@
-<h1>Chat Room</h1>
+<h1>Welcome to the Meow Room</h1>
+<div ng-hide="pseudo">
+<h2>Choose your pseudo buddy!</h2>
+<form>
+  <label>Pseudo: </label>
+  <input ng-model="monPseudo">
+  <button type="submit" ng-click="pseudoChosen()">I've chosen</button>
+</form>
+</div>
+<div ng-show="pseudo">
+    <div class="container-fluid">
+      <h3>En avant {{monPseudo}}</h3>
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-8">
+                <form>
+                    <label>Your post bro :</label>
+                    <textarea type="text" rows="7" cols="69" ng-model="message"></textarea>
+                    <button type="submit" ng-click="add()">Add</button>
+                </form>
+                <ul ng-repeat="message in messages track by $index">
+                    <li>{{message}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
