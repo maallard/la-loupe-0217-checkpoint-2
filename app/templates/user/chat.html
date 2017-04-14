@@ -1,1 +1,52 @@
-<h1>Chat Room</h1>
+<h1>Welcome in the CHAT !</h1>
+
+<h2>CHAT</h2>
+
+<div class="">
+<ul>
+  <li ng-repeat="commentaire in chat track by $index">
+      <p><span class="utilisateur">{{commentaire.user}} :</span> {{commentaire.commentaire}} </p>
+        <br /><br />
+    </li>
+</ul>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Entrez votre Commentaire: </p><textarea name="name" rows="4" cols="80" ng-model="commentaireInput"></textarea>
+
+<br /> <br />
+
+<p>User : </p> <input type="text" name="" value="" ng-model="userInput">
+
+<br /> <br />
+
+
+<button type="submit" name="button" ng-click="ajouterCommentaire()">Ajouter</button>
+
+<button type="submit" name="button" ng-click="verification()">Verification</button>
+
+<br /><br />
+
+<ul>
+    <!-- "track by $index" permet de répeter la meme valeur d'affiler sans message d'erreur ng-repeat = "Duplicates in a repeater are not allowed"" -->
+    <li ng-repeat="devoirs in todolist track by $index">
+      <p>User : {{devoirs.User}} <input ng-model="editUser"> <button type="button" name="button" ng-click="editconfirm($index,editUser,'User')"> Edit </button></p>
+      <p>Todo : {{devoirs.Todo}} <input ng-model="editTodo"> <button type="button" name="button" ng-click="editconfirm($index,editTodo, 'Todo')"> Edit </button></p>
+      <p>Days : {{ devoirs.Day }} <input ng-model="editDay"> <button type="button" name="button" ng-click="editconfirm($index,editDay, 'Day')"> Edit </button></p>
+
+        <button type="submit" name="button" ng-click="delete($index)">Delete</button>
+
+        <br /><br />
+    </li>
+</ul>
