@@ -8,11 +8,10 @@
         <span class="icon-bar"></span>
       </button>
             <a class="navbar-brand" ui-sref="user.chat">chat</a>
-            <a class="navbar-brand" href="#">{{user.name}}</a>
-
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
+                <li> <a class="navbar-brand">Welcome {{user.name}}</a></li>
                 <li><a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#'>Logout</a></li>
             </ul>
         </div>

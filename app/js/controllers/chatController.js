@@ -1,31 +1,24 @@
 angular.module('app')
-    .controller('ChatController', function($scope, CurrentUser, UserService) {
-        UserService.getOne(CurrentUser.user()._id).then(function(res) {
+    .controller('ChatController', function($scope, CurrentUser, UserService, PostService) {
+        $scope.post = {};
+        $scope.user = {};
+        var id = CurrentUser.user()._id;
+        UserService.getOne(id).then(function(res) {
             $scope.user = res.data;
         });
-        console.log($scope.user);
-        UserService.getAll().then(function(res) {
-            $scope.allUsers = res.data;
+
+        PostService.getAll().then(function(res) {
+            $scope.allPosts = res.data;
+            console.log($scope.allPosts);
         });
 
-
-        $scope.newPost = '';
-
         $scope.createPost = function() {
-            $scope.user.userPost.push($scope.newPost);
-            $scope.newPost = "";
-
-        };
-        $scope.update = function() {
-            UserService.update($scope.user._id, $scope.user);
-            UserService.getAll().then(function(res) {
-                $scope.allUsers = res.data;
+            $scope.post.user = $scope.user.name;
+            $scope.post.post = $scope.newPost;
+            PostService.create($scope.post);
+            PostService.getAll().then(function(res) {
+                $scope.allPosts = res.data;
             });
-            function Ctrl($scope) {
-                $scope.user.creationDate = new Date();
-            }
+            $scope.newPost = "";
         };
-
-        console.log($scope.allUsers);
-
     });

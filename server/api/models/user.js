@@ -29,14 +29,8 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    },
-    userPost: {
-      type: Array,
-    },
-    creationDate: {
-    type: Date,
-    default: Date.now
-  }
+    }
+
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {
