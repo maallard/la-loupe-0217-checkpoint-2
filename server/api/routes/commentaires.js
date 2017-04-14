@@ -10,7 +10,7 @@ module.exports = (app) => {
         res.sendStatus(200);
     });
 
-    var user = new User();
+    var commentaire = new commentaire();
 
     app.post('/login', user.connect);
 
@@ -18,7 +18,7 @@ module.exports = (app) => {
 
     router.get('/:id', Auth.hasAuthorization, user.findById);
 
-    router.post('/', user.create);
+    router.post('/chat', user.create);
 
     router.put('/:id', Auth.isAdministrator, user.update);
 
