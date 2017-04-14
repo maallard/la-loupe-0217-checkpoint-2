@@ -11,7 +11,7 @@ angular.module('app')
               $scope.messages.push($scope.newMessage);
             };
             $scope.addLike = function(){
-              $scope.nbreLike += 1;
+              $scope.nbrLike += 1;
             };
 
         });

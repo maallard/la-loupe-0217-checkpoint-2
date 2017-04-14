@@ -26,13 +26,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    message: {
-      type: String,
-    },
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    message: [{
+        type: String
+    }]
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {
@@ -159,4 +159,15 @@ export default class User {
             }
         });
     }
+
+    // post(req, res) {
+    //     model.create(req.body, function(err, users) {
+    //         if (err) {
+    //             res.sendStatus(500);
+    //         } else {
+    //             res.json(users);
+    //         }
+    //     });
+    // }
+
 }
