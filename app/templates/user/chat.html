@@ -17,6 +17,18 @@
                 <div class="meta">
                     <span class="author">{{ message.author.pseudonym }}</span> <span class="date">{{ message.creation_date | date : 'medium'}}</span>
                 </div>
+                <div class="controls">
+                    <div class="btn-group">
+                        <button ng-click="toggleLike(message)" type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                        <button type="button" class="btn btn-primary dropdown-toggle btn-xs" data-toggle="dropdown">
+                            <span>{{ message.likes.length}}</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-if="message.likes.length === 0">No one likes this</li>
+                            <li ng-if="message.likes.length !== 0" ng-repeat="liker in message.likes">{{ liker}} likes this !</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="content">
                     {{ message.content }}
                 </div>

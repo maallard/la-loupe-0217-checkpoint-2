@@ -7,6 +7,9 @@ angular.module('app')
             },
             getAll: function() {
                 return $http.get(`${URL}/messages/`);
+            },
+            like: function(messageId, liked, liker) {
+                return $http.post(`${URL}/messages/${messageId}/liker/${liker}`, {liked});
             }
         };
     });

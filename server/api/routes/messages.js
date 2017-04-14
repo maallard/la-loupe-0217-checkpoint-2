@@ -10,6 +10,8 @@ module.exports = (app) => {
 
     router.post('/', Auth.hasAuthorization, message.create);
 
+    router.post('/:messageId/liker/:likerId', Auth.hasAuthorization, message.setLike);
+
     router.get('/',  Auth.hasAuthorization, message.findAll);
 
     app.use('/messages', router);

@@ -26,6 +26,22 @@ angular.module('app')
             });
         };
 
+        $scope.toggleLike = function(message) {
+            var liked = !message.likes.includes($scope.user._id);
+            var liker = $scope.user._id;
+            MessageService.like(message._id, liked, liker).then(function(res) {
+                if (liked) {
+                    message.likes.push($scope.user._id);
+                } else {
+                    var index = message.likes.indexOf($scope.user._id);
+                    message.likes.splice(index, 1);
+                }
+                console.log(`Successfully ${liked ? 'liked' : 'disliked'} message`);
+            }, function(err) {
+                console.error(`Error ${liked ? 'liking' : 'disliking'} message ${message._id}`);
+            });
+        };
+
         // Private functions
         function clearFields() {
             $scope.newChatMessage = "";
@@ -34,7 +50,7 @@ angular.module('app')
         function refreshFeed() {
             MessageService.getAll().then(function(res){
                 $scope.messages = res.data.messages;
-                console.log("Successfuly refreshed feed at", (new Date()).toLocaleTimeString());
+                console.log("Successfuly refreshed feed at", (new Date()).toLocaleTimeString(), "||>", res.data);
             }, function(err) {
                 console.error('Error refreshing feed');
             });

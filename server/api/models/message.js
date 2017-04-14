@@ -12,6 +12,13 @@ const messageSchema = new mongoose.Schema({
     creation_date: {
         type: Date,
         default: Date.now
+    },
+    likes: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        default: []
     }
 });
 
@@ -53,4 +60,47 @@ export default class Message {
                 }
             });
     }
+
+    setLike(req, res) {
+        // TODO make it so that someone can remove a like
+        let liked = req.body.liked;
+
+        if (typeof liked === 'boolean') {
+            let update = {};
+            if (liked) {
+                update = {
+                    $push: {
+                        likes: req.params.likerId
+                    }
+                };
+            } else {
+                update = {
+                    $pull: {
+                        likes: req.params.likerId
+                    }
+                };
+            }
+
+            model.findByIdAndUpdate(req.params.messageId,
+                update, {
+                    new: true
+                }, (err, likedMessage) => {
+                    if (err || !likedMessage) {
+                        res.status(403).send({
+                            err
+                        });
+                    } else {
+                        res.json({
+                            likedMessage
+                        });
+                    }
+                });
+        } else {
+            res.status(400).send({
+                err
+            });
+        }
+    }
+
+
 }
