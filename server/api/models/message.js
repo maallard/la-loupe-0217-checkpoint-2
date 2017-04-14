@@ -36,6 +36,11 @@ export default class Message {
 
     findAll(req, res) {
         model.find({})
+            .populate('author', {
+                'password': 0,
+                'isAdmin': 0,
+                '__v': 0
+            })
             .exec((err, messages) => {
                 if (err || !messages) {
                     res.status(403).send({
