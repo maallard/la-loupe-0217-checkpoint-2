@@ -38,7 +38,8 @@ angular.module('app')
 
           ChatService.create(userPost).then(function(res){
                         $scope.chat.push(userPost)
-                        $scope.chat = $scope.chat.slice().reverse() // .slice().reverse() permet de mettre le tableau dans l'ordre inverse
+                        $scope.chat = $scope.chat.reverse()
+                         // .slice().reverse() permet de mettre le tableau dans l'ordre inverse
                         console.log('donné push');
                       }, function(err) {
                         console.error('Donné non push');

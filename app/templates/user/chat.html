@@ -1,28 +1,34 @@
-<h1>Welcome in the CHAT !</h1>
+<div class="row">
 
-<h2>CHAT</h2>
+    <div class="col-lg-offset-3 col-lg-6">
 
-<div class="">
-<ul>
-  <li ng-repeat="commentaire in chat track by $index">
-      <p><span class="utilisateur">{{commentaire.user}} :</span> {{commentaire.commentaire}} </p>
-        <br /><br />
-    </li>
-</ul>
+
+        <h1>Welcome in the CHAT !</h1>
+
+        <br />
+
+        <ul>
+            <li ng-repeat="commentaire in chat | orderBy :'-creation_Date' track by $index">
+                <p><span class="utilisateur">{{commentaire.user}} :</span> {{commentaire.commentaire}} - {{commentaire.creation_Date}}</p>
+                <br />
+            </li>
+        </ul>
+
+        <form class="" ng-submit="ajouterCommentaire()">
+
+
+            <p>Entrez votre Commentaire: </p><textarea name="name" rows="4" cols="80" ng-model="commentaireInput"></textarea>
+
+            <br /> <br />
+
+            <p>User : </p> <input type="text" name="" value="" ng-model="userInput">
+
+            <br /> <br />
+
+
+            <button type="submit" name="button" ng-submit="ajouterCommentaire()">Ajouter</button>
+        </form>
+
+    </div>
 
 </div>
-
-<form class="" ng-submit="ajouterCommentaire()" >
-
-
-<p>Entrez votre Commentaire: </p><textarea name="name" rows="4" cols="80" ng-model="commentaireInput"></textarea>
-
-<br /> <br />
-
-<p>User : </p> <input type="text" name="" value="" ng-model="userInput">
-
-<br /> <br />
-
-
-<button type="submit" name="button" ng-submit="ajouterCommentaire()">Ajouter</button>
-</form>
