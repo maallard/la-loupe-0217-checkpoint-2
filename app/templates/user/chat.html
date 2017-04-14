@@ -1,1 +1,26 @@
 <h1>Chat Room</h1>
+
+<form ng-submit="sendMessage(newChatMessage)">
+    <textarea rows="8" cols="80" ng-model="newChatMessage"></textarea>
+    <button tupe="submit">Send</button>
+</form>
+
+<div class="feed">
+    <div class="controls">
+        <div class="creation-date">
+            <span></span>
+        </div>
+    </div>
+    <ul>
+        <li ng-repeat="message in messages track by $index">
+            <div class="message">
+                <div class="meta">
+                    <span class="author">{{ message.author}}</span> <span class="date">{{ message.creation_date }}</span>
+                </div>
+                <div class="content">
+                    {{ message.content }}
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
