@@ -1,1 +1,18 @@
-<h1>Chat Room</h1>
+<div class="container">
+    <h1>Have fun with : Chat Room</h1><br>
+    <div class="row">
+        <div class="col-xs-6">
+            <form class="form-chat" action="/" method="post" ng-submit="addCom()">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="message" placeholder="Vas-y cause !" ng-model="message">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-secondary">Go!</button>
+                      </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <section class="chatbox">
+        <textarea name="post" rows="8" cols="80" ng-repeat="message in messages track by $index"></textarea>
+    </section>
+</div>
