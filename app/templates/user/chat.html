@@ -3,15 +3,15 @@
 
   <div class="row">
 
-    <form class="col-lg-4 col-xs-12 form-group">
+    <form class="col-lg-4 col-md-4 col-xs-12 form-group">
       <textarea class="form-control" rows="3" placeholder="Enter your comment" ng-model="query"></textarea>
       <button class="btn btn-default" ng-click="submitComment()">Submit</button>
     </form>
 
-    <ul class="col-lg-8 col-xs-12">
+    <ul class="col-lg-8 col-md-8 col-xs-12">
       <li class="list-group-item" ng-repeat="comment in comments">
         <h2>{{ comment.user.userName }}</h2>
-        <h3>{{ comment.date | date: 'yyyy-MM-dd' }}</h3>
+        <h3>{{ comment.date | date: 'yyyy-MM-dd HH:mm' }}</h3>
         <hr />
         <p>{{ comment.content }}</p>
       </li>
