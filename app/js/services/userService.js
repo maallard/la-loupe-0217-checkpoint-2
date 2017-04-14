@@ -12,6 +12,9 @@ angular.module('app')
             },
             delete: function(id) {
                 return $http.delete('/users/' + id);
+            },
+            addComment: function(id, commentId) {
+                return $http.put('/users/newcomment/' + id, {comment: commentId});
             }
         };
     });

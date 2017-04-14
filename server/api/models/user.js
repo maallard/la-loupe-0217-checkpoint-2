@@ -25,7 +25,19 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    comments: [{
+        body: {
+          type: String
+        },
+        commentId: {
+            type: String
+        },
+        addedDate: {
+            type: Date,
+            default: Date.now
+        }
+    }]
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {
@@ -74,7 +86,26 @@ export default class User {
             });
         }
     }
-
+    addComment(req, res) {
+        model.findOneAndUpdate({
+                _id: req.params.id
+            }, {
+                $push: {
+                    body: {},
+                    comments: {
+                        commentId: req.body.comment
+                    }
+                }
+            },
+            (err, user) => {
+                if (err || !user) {
+                    res.status(500).send(err.message);
+                } else {
+                    res.json(user);
+                }
+            });
+    }
+    
     findAll(req, res) {
         model.find({}, {
             password: 0

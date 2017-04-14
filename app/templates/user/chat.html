@@ -1,1 +1,10 @@
 <h1>Chat Room</h1>
+
+<ul class="list-group">
+        <p ng-repeat="comment in comments"> {{ comment.date }} </p>
+</ul>
+
+<form class="form-inline">
+    <input type="text" class="form-control" placeholder="Your message" ng-model="query">
+    <button class="btn btn-primary" ng-click="addComment()">Add message</button>
+</form>
