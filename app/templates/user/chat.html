@@ -1,17 +1,22 @@
 <div class="container">
   <h1>Chat Room</h1>
 
-  <form class="col-lg-4 form-group">
-    <textarea class="form-control" rows="3" placeholder="Enter your comment" ng-model="query"></textarea>
-    <button class="btn btn-default" ng-click="submitComment()">Submit</button>
-  </form>
+  <div class="row">
 
-  <ul class="col-lg-6 list-group">
-    <li class="list-group-item" ng-repeat="comment in comments">
-      {{ comment.user }} <br />
-      {{ comment.date | date: 'yyyy-MM-dd' }} <br />
-      {{ comment.content }}
-    </li>
-  </ul>
+    <form class="col-lg-4 col-xs-12 form-group">
+      <textarea class="form-control" rows="3" placeholder="Enter your comment" ng-model="query"></textarea>
+      <button class="btn btn-default" ng-click="submitComment()">Submit</button>
+    </form>
+
+    <ul class="col-lg-8 col-xs-12">
+      <li class="list-group-item" ng-repeat="comment in comments">
+        <h2>{{ comment.user.userName }}</h2>
+        <h3>{{ comment.date | date: 'yyyy-MM-dd' }}</h3>
+        <hr />
+        <p>{{ comment.content }}</p>
+      </li>
+    </ul>
+
+  </div>
 
 </div>

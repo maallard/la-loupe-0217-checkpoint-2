@@ -6,7 +6,9 @@ const commentSchema = new mongoose.Schema({
       type: String
     },
     user: {
-      type: String
+      userName: {
+        type: String
+      }
     },
     date: {
       type: Date,
