@@ -1,1 +1,15 @@
 <h1>Chat Room</h1>
+<div class="messageBoard">
+<tr ng-repeat="message in newMessage">
+    <td>{{message.content}}</td>
+
+</tr>
+</div>
+<body ng-app='app'>
+    <div ng-controller='ChatController'>
+        <form ng-submit='createMessage()'>
+            <input ng-model='newMessage.content' class="form-control" />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>

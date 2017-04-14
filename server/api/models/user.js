@@ -22,6 +22,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    pseudo: {
+        type: String,
+    },
     isAdmin: {
         type: Boolean,
         default: false
