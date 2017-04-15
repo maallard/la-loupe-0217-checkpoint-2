@@ -15,7 +15,7 @@
     </div>
     <form>
       <div class="form-group" ng-repeat="chatComment in chatComments">
-        <label for="message-text" class="control-label">Post of</label>
-        <textarea class="form-control" id="message-text">{{ chatComment }}</textarea>
+        <label for="message-text" class="control-label">Post of {{ user.pseudo }}</label>
+        <textarea class="form-control" id="message-text">{{ chatComment }}{{ chat.date }}</textarea>
       </div>
     </form>

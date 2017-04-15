@@ -32,6 +32,16 @@ export default class Chat {
             }
         });
 }
+  findById(req, res) {
+    model.findById(req.params.id,
+        (err, chats) => {
+            if (err || !chats) {
+                res.sendStatus(403);
+            } else {
+                res.json(chats);
+            }
+        });
+}
 
 
     createChat(req, res) {
