@@ -34,7 +34,11 @@ export default class Chat {
         });
 }
 //   findById(req, res) {
-//     model.findById(req.params.id,
+//     model.findById({
+//       commentId: req.params.commentId
+//     })
+//       .populate('name', 'pseudo')
+//       .exec(
 //         (err, chats) => {
 //             if (err || !chats) {
 //                 res.sendStatus(403);

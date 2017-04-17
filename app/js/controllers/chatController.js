@@ -1,11 +1,10 @@
 angular.module('app')
     .controller('ChatController', function($scope, CurrentUser, UserService, ChatService) {
-
+        $scope.user = CurrentUser.user();
         UserService.getOne(CurrentUser.user()._id).then(function(res) {
             $scope.user = res.data;
         });
 
-        $scope.add = "";
         $scope.chatComments = [];
         $scope.addComment = function(chatComment) {
             var chat = {
@@ -13,11 +12,12 @@ angular.module('app')
                 name: $scope.user._id
             };
 
+            console.log(chat);
+
             ChatService.createChat(chat).then(function(res) {});
 
             location.reload();
 
-            console.log(chat);
         };
 
         ChatService.findAll().then(function(res) {

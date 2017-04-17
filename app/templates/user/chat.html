@@ -1,17 +1,16 @@
 <h1>Chat Room</h1>
-
-    <div class="modal-body">
-        <form>
-            <div class="form-group">
-                <label for="message-text" class="control-label">Please post chat</label>
-                <textarea ng-model="chatComment" class="form-control" id="message-text"></textarea>
-            </div>
-            <button class="btn btn-success" type="submit" ng-click="addComment(chatComment)" name="button">Valid Post</button>
-        </form>
-    </div>
-    <form>
-      <div class="form-group" ng-repeat="chatComment in chatComments">
-        <label for="message-text" class="control-label">Post of: {{ chatComment.pseudo }}</br> Date of post: {{ chatComment.date | date: 'medium' }}</label>
+<form>
+    <div class="form-group" ng-repeat="chatComment in chatComments">
+        <label for="message-text" class="control-label">Post of: {{ chatComment.name }}</br> Date of post: {{ chatComment.date | date: 'medium' }}</label>
         <textarea class="form-control" id="message-text">{{ chatComment.chatPost }}</textarea>
-      </div>
+    </div>
+</form>
+<div class="modal-body">
+    <form>
+        <div class="form-group">
+            <label for="message-text" class="control-label"><h3>Please post chat</h3></label>
+            <textarea ng-model="chatComment" class="form-control" id="message-text"></textarea>
+        </div>
+        <button class="btn btn-success" type="submit" ng-click="addComment(chatComment)" name="button">Valid Post</button>
     </form>
+</div>
