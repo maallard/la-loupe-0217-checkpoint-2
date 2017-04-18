@@ -24,7 +24,9 @@ let model = mongoose.model('Chat', chatSchema);
 export default class Chat {
 
   findAll(req, res) {
-    model.find({},
+    model.find({})
+      .populate('name')
+      .exec(
         (err, chats) => {
             if (err || !chats) {
                 res.sendStatus(403);
@@ -33,21 +35,6 @@ export default class Chat {
             }
         });
 }
-//   findById(req, res) {
-//     model.findById({
-//       commentId: req.params.commentId
-//     })
-//       .populate('name', 'pseudo')
-//       .exec(
-//         (err, chats) => {
-//             if (err || !chats) {
-//                 res.sendStatus(403);
-//             } else {
-//                 res.json(chats);
-//             }
-//         });
-// }
-
 
     createChat(req, res) {
         model.create(req.body,

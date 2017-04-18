@@ -1,7 +1,7 @@
 <h1>Chat Room</h1>
 <form>
     <div class="form-group" ng-repeat="chatComment in chatComments">
-        <label for="message-text" class="control-label">Post of: {{ chatComment.name }}</br> Date of post: {{ chatComment.date | date: 'medium' }}</label>
+        <label for="message-text" class="control-label">Post of: {{ chatComment.name.pseudo }}</br> Date of post: {{ chatComment.date | date: 'medium' }}</label>
         <textarea class="form-control" id="message-text">{{ chatComment.chatPost }}</textarea>
     </div>
 </form>

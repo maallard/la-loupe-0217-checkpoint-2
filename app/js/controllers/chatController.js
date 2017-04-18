@@ -22,5 +22,6 @@ angular.module('app')
 
         ChatService.findAll().then(function(res) {
             $scope.chatComments = res.data;
+            console.log(res.data);
         }, function(err) {});
     });
