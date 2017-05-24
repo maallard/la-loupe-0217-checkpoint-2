@@ -1,1 +1,48 @@
 <h1>Chat Room</h1>
+
+<h2>Instructions</h2>
+<p>
+    Type in the box your message and click 'Send'. This chat uses Markdown.
+</p>
+
+<form ng-submit="sendMessage(newChatMessage)">
+    <textarea rows="8" cols="80" ng-model="newChatMessage"></textarea>
+    <button tupe="submit">Send</button>
+</form>
+
+<div class="feed">
+    <div class="controls">
+        <div class="creation-date">
+            <span ng-click="newestToOldest = !newestToOldest">Creation Date : <i class="glyphicon" ng-class="{'glyphicon-chevron-down': newestToOldest, 'glyphicon-chevron-up': !newestToOldest}" ></i></span>
+        </div>
+    </div>
+    <ul>
+        <li ng-repeat="message in messages | orderBy :'creation_date':newestToOldest track by $index">
+            <div class="message">
+                <div class="meta">
+                    <span class="author">{{ message.author.pseudonym }}</span> <span class="date">{{ message.creation_date | date : 'medium'}}</span>
+                </div>
+                <div class="controls">
+                    <div class="btn-group">
+                        <button ng-click="toggleLike(message)" type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                        <button type="button" class="btn btn-primary dropdown-toggle btn-xs" data-toggle="dropdown">
+                            <span>{{ message.likes.length}}</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-if="message.likes.length === 0">No one likes this</li>
+                            <li ng-if="message.likes.length !== 0" ng-repeat="liker in message.likes | orderBy : $index : true |limitTo:3">
+                                <span ng-if="!isCurrentUser(liker)">{{ liker.pseudonym }} likes this !</span>
+                                <span ng-if="isCurrentUser(liker)">You like this !</span>
+                            </li>
+                            <li ng-if="message.likes.length > 3">
+                                {{ message.likes.length - 3}} other user<span ng-if="message.likes.length > 4">s</span> like<span ng-if="message.likes.length === 4">s</span> this.
+                            <li>
+                        </ul>
+                    </div>
+                </div>
+                <div marked="message.content" class="content">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
